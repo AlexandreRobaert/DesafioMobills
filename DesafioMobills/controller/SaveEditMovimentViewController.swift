@@ -14,6 +14,8 @@ class SaveEditMovimentViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var efetivadoLabel: UILabel!
+    @IBOutlet weak var efetivadoSwitch: UISwitch!
     
     var db: Firestore?
     var moviment: Moviment?
@@ -23,10 +25,10 @@ class SaveEditMovimentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        dateFormat.dateStyle = .short
-        dateFormat.dateFormat = "dd/MM/yyyy"
+        setupView()
         loadMoviment()
         setDatePickerInTextField()
+        
     }
     
     static func instantiate() -> SaveEditMovimentViewController {
@@ -38,30 +40,39 @@ class SaveEditMovimentViewController: UIViewController {
     }
     
     func setupView(){
+        dateFormat.dateStyle = .short
+        dateFormat.dateFormat = "dd/MM/yyyy"
         if let _ = moviment {
-            navigationItem.title = "Alterar Movimento"
+            navigationItem.title = "Editar Movimento"
+            efetivadoLabel.isHidden = false
+            efetivadoSwitch.isHidden = false
         }else{
             navigationItem.title = "Novo Movimento"
         }
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func loadMoviment(){
         if let moviment = self.moviment {
-            print(moviment.id!)
             descriptionTextField.text = moviment.description
             dateTextField.text = dateFormat.string(from: moviment.date)
             valueTextField.text = String("\(moviment.value)")
+            efetivadoSwitch.isOn = moviment.effected
         }
     }
     
     func getMovimentFromForm() -> Bool {
-        if let dateText = dateTextField.text {
+        if let dateText = dateTextField.text, dateText.count > 0 {
             if let date = dateFormat.date(from: dateText), let value = Float(valueTextField.text!), let description = descriptionTextField.text{
                 
                 if let _ = moviment {
                     self.moviment?.description = description
                     self.moviment?.date = date
                     self.moviment?.value = value
+                    self.moviment?.effected = efetivadoSwitch.isOn
                 }else{
                     self.moviment = Moviment(value: value, description: description, date: date, expose: true)
                 }
@@ -115,9 +126,11 @@ class SaveEditMovimentViewController: UIViewController {
     func showAlertResult(message: String){
         let alertController = UIAlertController(title: "Salvo", message: "\(message)", preferredStyle: .alert)
         let actionDone = UIAlertAction(title: "OK", style: .default) { alertAction in
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         alertController.addAction(actionDone)
+        present(alertController, animated: true, completion: nil)
     }
 }
+
 

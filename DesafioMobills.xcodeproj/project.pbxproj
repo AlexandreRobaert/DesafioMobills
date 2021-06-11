@@ -15,10 +15,13 @@
 		AC0B295426728C00000B8704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295326728C00000B8704 /* Assets.xcassets */; };
 		AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295526728C00000B8704 /* LaunchScreen.storyboard */; };
 		AC0B296326728ED6000B8704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC0B296226728ED6000B8704 /* GoogleService-Info.plist */; };
-		AC7B824D26729DAE000CBFB1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B824C26729DAE000CBFB1 /* LoginViewController.swift */; };
 		AC7B82522672A274000CBFB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82512672A274000CBFB1 /* User.swift */; };
 		AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82532672A4EC000CBFB1 /* Moviment.swift */; };
 		AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */; };
+		ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB518E26740D3A00F74420 /* LoginViewController.swift */; };
+		ACBB519126740D3A00F74420 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBB518F26740D3A00F74420 /* LoginViewController.xib */; };
+		ACBB51942674122800F74420 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB51922674122800F74420 /* CreateUserViewController.swift */; };
+		ACBB51952674122800F74420 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBB51932674122800F74420 /* CreateUserViewController.xib */; };
 		ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAAC54267391BF006B6693 /* DetailViewController.swift */; };
 		ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEAAC55267391BF006B6693 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -34,10 +37,13 @@
 		AC0B295626728C00000B8704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC0B295826728C00000B8704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC0B296226728ED6000B8704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AC7B824C26729DAE000CBFB1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AC7B82512672A274000CBFB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC7B82532672A4EC000CBFB1 /* Moviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moviment.swift; sourceTree = "<group>"; };
 		AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		ACBB518E26740D3A00F74420 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ACBB518F26740D3A00F74420 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		ACBB51922674122800F74420 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		ACBB51932674122800F74420 /* CreateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
 		ACEAAC54267391BF006B6693 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ACEAAC55267391BF006B6693 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		CAFA0F0429C102D2CF43916F /* Pods-DesafioMobills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobills.debug.xcconfig"; path = "Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,9 +113,10 @@
 		AC7B824B26729D8E000CBFB1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				ACBB51922674122800F74420 /* CreateUserViewController.swift */,
+				ACBB518E26740D3A00F74420 /* LoginViewController.swift */,
 				AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */,
 				AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */,
-				AC7B824C26729DAE000CBFB1 /* LoginViewController.swift */,
 				ACEAAC54267391BF006B6693 /* DetailViewController.swift */,
 			);
 			path = controller;
@@ -138,6 +145,8 @@
 		AC7B82502672A216000CBFB1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ACBB51932674122800F74420 /* CreateUserViewController.xib */,
+				ACBB518F26740D3A00F74420 /* LoginViewController.xib */,
 				ACEAAC55267391BF006B6693 /* DetailViewController.xib */,
 				AC0B295026728BFF000B8704 /* Main.storyboard */,
 			);
@@ -162,6 +171,8 @@
 			dependencies = (
 			);
 			name = DesafioMobills;
+			packageProductDependencies = (
+			);
 			productName = DesafioMobills;
 			productReference = AC0B294726728BFF000B8704 /* DesafioMobills.app */;
 			productType = "com.apple.product-type.application";
@@ -189,6 +200,8 @@
 				Base,
 			);
 			mainGroup = AC0B293E26728BFF000B8704;
+			packageReferences = (
+			);
 			productRefGroup = AC0B294826728BFF000B8704 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,8 +218,10 @@
 			files = (
 				AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */,
 				AC0B296326728ED6000B8704 /* GoogleService-Info.plist in Resources */,
+				ACBB519126740D3A00F74420 /* LoginViewController.xib in Resources */,
 				ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */,
 				AC0B295426728C00000B8704 /* Assets.xcassets in Resources */,
+				ACBB51952674122800F74420 /* CreateUserViewController.xib in Resources */,
 				AC0B295226728BFF000B8704 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,9 +277,10 @@
 			files = (
 				AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */,
 				AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */,
-				AC7B824D26729DAE000CBFB1 /* LoginViewController.swift in Sources */,
 				AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */,
 				AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */,
+				ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */,
+				ACBB51942674122800F74420 /* CreateUserViewController.swift in Sources */,
 				AC7B82522672A274000CBFB1 /* User.swift in Sources */,
 				AC0B294D26728BFF000B8704 /* SceneDelegate.swift in Sources */,
 				ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */,
@@ -422,7 +438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.alexandre.DesafioMobills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.desafiomobills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,7 +458,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.alexandre.DesafioMobills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.desafiomobills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

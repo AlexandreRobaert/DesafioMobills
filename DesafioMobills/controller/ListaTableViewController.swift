@@ -12,13 +12,11 @@ class ListaTableViewController: UITableViewController {
     
     var moviments:[Moviment] = []
     var db: Firestore?
+    var indexPathSelected: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         loadMoviments()
     }
 
@@ -33,6 +31,7 @@ class ListaTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         cell.textLabel?.text = moviments[indexPath.row].description
+        cell.detailTextLabel?.text = "R$ \(moviments[indexPath.row].value)"
 
         return cell
     }
@@ -47,8 +46,8 @@ class ListaTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.indexPathSelected = indexPath
+            showAlertDelete(message: moviments[indexPath.row].description)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -69,8 +68,26 @@ class ListaTableViewController: UITableViewController {
         }
     }
     
+    func deleteMoviment(){
+        db!.collection("moviments").document(moviments[indexPathSelected!.row].id!).delete()
+        moviments.remove(at: indexPathSelected!.row)
+        tableView.deleteRows(at: [indexPathSelected!], with: .fade)
+    }
+    
+    func showAlertDelete(message: String){
+        let alertController = UIAlertController(title: "Excluir?", message: "\(message)", preferredStyle: .alert)
+        let actionDelete = UIAlertAction(title: "Excluir", style: .default) { alertAction in
+            self.deleteMoviment()
+        }
+        let actionCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alertController.addAction(actionDelete)
+        alertController.addAction(actionCancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func buttonAddPressed(_ sender: Any) {
-        let vcMoviment = SaveEditMovimentViewController.instantiate()
-        navigationController?.pushViewController(vcMoviment, animated: true)
+        //performSegue(withIdentifier: "segueSaveEdit", sender: nil)
+        let vcLogin = LoginViewController()
+        navigationController?.pushViewController(vcLogin, animated: true)
     }
 }

@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  DesafioMobills
 //
-//  Created by Alexandre Robaert on 10/06/21.
+//  Created by Alexandre Robaert on 11/06/21.
 //
 
 import UIKit
@@ -12,12 +12,12 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,17 +30,25 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(handle!)
     }
-
-    @IBAction func loginTouchUp(_ sender: Any) {
-        
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
-    func createUser(for user: User){
-        
-        
-        Auth.auth().createUser(withEmail: user.email, password: user.password) { authResult, error in
-            guard let resultSelf = authResult else {return}
-            print(resultSelf.user.displayName)
+    
+    @IBAction func loginPressed(_ sender: Any) {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                if let user = result?.user {
+                    print(user.uid)
+                }else{
+                    print("Login Inválido")
+                }
+            }
         }
     }
+    @IBAction func pressedCreateButton(_ sender: Any) {
+        navigationController?.pushViewController(CreateUserViewController(), animated: true)
+    }
+    
 }
