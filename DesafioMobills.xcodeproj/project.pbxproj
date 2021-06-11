@@ -10,7 +10,7 @@
 		634C7FE60913A9293EBB66B7 /* Pods_DesafioMobills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0711FC6A3D3D20518B468929 /* Pods_DesafioMobills.framework */; };
 		AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294A26728BFF000B8704 /* AppDelegate.swift */; };
 		AC0B294D26728BFF000B8704 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294C26728BFF000B8704 /* SceneDelegate.swift */; };
-		AC0B294F26728BFF000B8704 /* MovimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294E26728BFF000B8704 /* MovimentViewController.swift */; };
+		AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */; };
 		AC0B295226728BFF000B8704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295026728BFF000B8704 /* Main.storyboard */; };
 		AC0B295426728C00000B8704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295326728C00000B8704 /* Assets.xcassets */; };
 		AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295526728C00000B8704 /* LaunchScreen.storyboard */; };
@@ -19,6 +19,8 @@
 		AC7B82522672A274000CBFB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82512672A274000CBFB1 /* User.swift */; };
 		AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82532672A4EC000CBFB1 /* Moviment.swift */; };
 		AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */; };
+		ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAAC54267391BF006B6693 /* DetailViewController.swift */; };
+		ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEAAC55267391BF006B6693 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +28,7 @@
 		AC0B294726728BFF000B8704 /* DesafioMobills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioMobills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0B294A26728BFF000B8704 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC0B294C26728BFF000B8704 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC0B294E26728BFF000B8704 /* MovimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentViewController.swift; sourceTree = "<group>"; };
+		AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEditMovimentViewController.swift; sourceTree = "<group>"; };
 		AC0B295126728BFF000B8704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC0B295326728C00000B8704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC0B295626728C00000B8704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		AC7B82512672A274000CBFB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC7B82532672A4EC000CBFB1 /* Moviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moviment.swift; sourceTree = "<group>"; };
 		AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		ACEAAC54267391BF006B6693 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ACEAAC55267391BF006B6693 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		CAFA0F0429C102D2CF43916F /* Pods-DesafioMobills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobills.debug.xcconfig"; path = "Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills.debug.xcconfig"; sourceTree = "<group>"; };
 		FCA5911039FECDD2E117BAD9 /* Pods-DesafioMobills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobills.release.xcconfig"; path = "Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,9 +107,10 @@
 		AC7B824B26729D8E000CBFB1 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				AC0B294E26728BFF000B8704 /* MovimentViewController.swift */,
-				AC7B824C26729DAE000CBFB1 /* LoginViewController.swift */,
 				AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */,
+				AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */,
+				AC7B824C26729DAE000CBFB1 /* LoginViewController.swift */,
+				ACEAAC54267391BF006B6693 /* DetailViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 		AC7B82502672A216000CBFB1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				ACEAAC55267391BF006B6693 /* DetailViewController.xib */,
 				AC0B295026728BFF000B8704 /* Main.storyboard */,
 			);
 			path = view;
@@ -199,6 +205,7 @@
 			files = (
 				AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */,
 				AC0B296326728ED6000B8704 /* GoogleService-Info.plist in Resources */,
+				ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */,
 				AC0B295426728C00000B8704 /* Assets.xcassets in Resources */,
 				AC0B295226728BFF000B8704 /* Main.storyboard in Resources */,
 			);
@@ -256,10 +263,11 @@
 				AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */,
 				AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */,
 				AC7B824D26729DAE000CBFB1 /* LoginViewController.swift in Sources */,
-				AC0B294F26728BFF000B8704 /* MovimentViewController.swift in Sources */,
+				AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */,
 				AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */,
 				AC7B82522672A274000CBFB1 /* User.swift in Sources */,
 				AC0B294D26728BFF000B8704 /* SceneDelegate.swift in Sources */,
+				ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
