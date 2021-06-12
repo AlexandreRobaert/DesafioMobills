@@ -16,6 +16,8 @@ class SaveEditMovimentViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var efetivadoLabel: UILabel!
     @IBOutlet weak var efetivadoSwitch: UISwitch!
+    @IBOutlet weak var receitaLabel: UILabel!
+    @IBOutlet weak var receitaSwitch: UISwitch!
     
     var db: Firestore?
     var moviment: Moviment?
@@ -46,8 +48,11 @@ class SaveEditMovimentViewController: UIViewController {
             navigationItem.title = "Editar Movimento"
             efetivadoLabel.isHidden = false
             efetivadoSwitch.isHidden = false
+            receitaLabel.isHidden = true
+            receitaSwitch.isHidden = true
         }else{
             navigationItem.title = "Novo Movimento"
+            
         }
     }
     
@@ -73,8 +78,9 @@ class SaveEditMovimentViewController: UIViewController {
                     self.moviment?.date = date
                     self.moviment?.value = value
                     self.moviment?.effected = efetivadoSwitch.isOn
+                    self.moviment?.expose = !receitaSwitch.isOn
                 }else{
-                    self.moviment = Moviment(value: value, description: description, date: date, expose: true)
+                    self.moviment = Moviment(value: value, description: description, date: date, expose: !receitaSwitch.isOn)
                 }
                 
                 return true
@@ -84,16 +90,17 @@ class SaveEditMovimentViewController: UIViewController {
     }
     
     func saveMoviment(){
+        let uid = UserDefaults.standard.string(forKey: "UID")!
         if getMovimentFromForm(){
             self.indicator.isHidden = false
             var err: Error?
             if let id = self.moviment?.id {
-                db!.collection("moviments").document("\(id)").setData(moviment!.toDictionary()) { error in
-                    err = error
+                db!.collection("moviments").document(uid).collection("mov").document(id).setData(moviment!.toDictionary()) {
+                    err = $0
                 }
             }else{
-                db!.collection("moviments").addDocument(data: self.moviment!.toDictionary()) { error in
-                    err = error
+                db!.collection("moviments").document(uid).collection("mov").addDocument(data: moviment!.toDictionary()) {
+                    err = $0
                 }
             }
             

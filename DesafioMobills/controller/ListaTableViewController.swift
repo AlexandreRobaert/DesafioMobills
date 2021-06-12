@@ -7,16 +7,25 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class ListaTableViewController: UITableViewController {
     
     var moviments:[Moviment] = []
     var db: Firestore?
     var indexPathSelected: IndexPath?
+    let uid = UserDefaults.standard.string(forKey: "UID")!
+    let nameUser = UserDefaults.standard.string(forKey: "NAME")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        title = nameUser
         db = Firestore.firestore()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loadMoviments()
     }
 
@@ -48,15 +57,13 @@ class ListaTableViewController: UITableViewController {
         if editingStyle == .delete {
             self.indexPathSelected = indexPath
             showAlertDelete(message: moviments[indexPath.row].description)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }  
     }
     
     //MARK: - Methods
     func loadMoviments(){
         self.moviments.removeAll()
-        db!.collection("moviments").getDocuments { querySnaptshot, error in
+        db!.collection("moviments").document(uid).collection("mov").getDocuments { querySnaptshot, error in
             if let err = error {
                 print("Erro ao buscar Movimentos - \(err)")
             }else{
@@ -69,7 +76,7 @@ class ListaTableViewController: UITableViewController {
     }
     
     func deleteMoviment(){
-        db!.collection("moviments").document(moviments[indexPathSelected!.row].id!).delete()
+        db!.collection("moviments").document(uid).collection("mov").document(moviments[indexPathSelected!.row].id!).delete()
         moviments.remove(at: indexPathSelected!.row)
         tableView.deleteRows(at: [indexPathSelected!], with: .fade)
     }
@@ -86,8 +93,20 @@ class ListaTableViewController: UITableViewController {
     }
     
     @IBAction func buttonAddPressed(_ sender: Any) {
-        //performSegue(withIdentifier: "segueSaveEdit", sender: nil)
-        let vcLogin = LoginViewController()
-        navigationController?.pushViewController(vcLogin, animated: true)
+        performSegue(withIdentifier: "segueSaveEdit", sender: nil)
+    }
+    
+    @IBAction func signOutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            if let appDomain = Bundle.main.bundleIdentifier {
+                UserDefaults.standard.removePersistentDomain(forName: appDomain)
+            }
+            navigationController?.dismiss(animated: false, completion: nil)
+            let navigationLogin = UINavigationController(rootViewController: LoginViewController())
+            self.present(navigationLogin, animated: true, completion: nil)
+        }catch let signOutError as NSError{
+            print("Erro logOff \(signOutError)")
+        }
     }
 }

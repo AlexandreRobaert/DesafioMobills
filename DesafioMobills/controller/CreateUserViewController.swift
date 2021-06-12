@@ -21,13 +21,20 @@ class CreateUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        title = "Novo usuário"
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
         handle = Auth.auth().addStateDidChangeListener({ Auth, user in
-            
+            if user != nil {
+                UserDefaults.standard.setValue(user!.uid, forKey: "UID")
+                UserDefaults.standard.setValue(user!.displayName, forKey: "NAME")
+                self.toListViewController()
+            }
         })
     }
     
@@ -48,10 +55,13 @@ class CreateUserViewController: UIViewController {
                     self.messageErrorLabel.isHidden = false
                     return
                 }
+                let changeRequest = userFireDb.createProfileChangeRequest()
+                changeRequest.displayName = name
+                changeRequest.commitChanges(completion: nil)
                 let user = User(id: userFireDb.uid, name: name, email: email, password: password)
                 self.saveUserDb(user: user) { result in
                     if result {
-                        self.navigationController?.popToRootViewController(animated: true)
+                        self.toListViewController()
                     }else{
                         self.messageErrorLabel.text = "Problema ao salvar Usuário"
                         self.messageErrorLabel.isHidden = false
@@ -66,6 +76,13 @@ class CreateUserViewController: UIViewController {
             completion(false)
         }
         completion(true)
+    }
+    
+    func toListViewController(){
+        self.navigationController?.dismiss(animated: false, completion: nil)
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "storyNavigationController") as! UINavigationController
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true, completion: nil)
     }
     
 }
