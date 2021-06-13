@@ -125,10 +125,10 @@ class ListaTableViewController: UITableViewController {
     }
     
     func loadMoviments(from date: Date){
-        self.moviments = allMoviments.filter{$0.date == date}
-        for mov in moviments {
-            print(mov.description)
-        }
+        let format = DateFormatter()
+        format.dateStyle = .short
+        format.dateFormat = "dd/MM/yy"
+        self.moviments = allMoviments.filter{format.string(from: $0.date) == format.string(from: date)}
     }
     
     func deleteMoviment(){
@@ -159,8 +159,9 @@ class ListaTableViewController: UITableViewController {
     
     
     @IBAction func calendarDateChange(_ sender: UIDatePicker) {
-        
-        print(sender.date)
+        loadMoviments(from: sender.date)
+        configValueAndMessage()
+        tableView.reloadData()
     }
     
     @IBAction func signOutPressed(_ sender: Any) {
