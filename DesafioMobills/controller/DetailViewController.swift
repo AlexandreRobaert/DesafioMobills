@@ -41,6 +41,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func pressedEditButton(_ sender: Any) {
+        
         let vcMoviment = SaveEditMovimentViewController.instantiate()
         vcMoviment.moviment = moviment
         self.navigationController?.pushViewController(vcMoviment, animated: true)

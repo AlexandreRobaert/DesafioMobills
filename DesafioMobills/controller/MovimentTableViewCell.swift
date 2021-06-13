@@ -32,7 +32,7 @@ class MovimentTableViewCell: UITableViewCell {
         valueLabel.text = String(format: "R$ %.2f", moviment.value)
         let imageString = moviment.expose ? "rectangle.badge.minus" : "rectangle.badge.plus"
         imageStatusImageView.image = UIImage(systemName: imageString)
-        
+        imageStatusImageView.tintColor = moviment.expose ? .red : .green
         var color = UIColor()
         if moviment.effected{
             color = .darkGray

@@ -14,6 +14,7 @@ class ListaTableViewController: UITableViewController {
     @IBOutlet weak var subTotalLabel: UILabel!
     @IBOutlet weak var typeSegmControl: UISegmentedControl!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var moviments:[Moviment] = []
     var allMoviments:[Moviment] = []
@@ -108,6 +109,7 @@ class ListaTableViewController: UITableViewController {
             break
         }
         configValueAndMessage()
+        datePicker.date = Date()
     }
     
     func configValueAndMessage(){
@@ -152,11 +154,9 @@ class ListaTableViewController: UITableViewController {
         filterMoviments()
     }
     
-    
     @IBAction func buttonAddPressed(_ sender: Any) {
         performSegue(withIdentifier: "segueSaveEdit", sender: nil)
     }
-    
     
     @IBAction func calendarDateChange(_ sender: UIDatePicker) {
         loadMoviments(from: sender.date)
