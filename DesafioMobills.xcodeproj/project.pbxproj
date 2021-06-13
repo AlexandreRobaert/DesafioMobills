@@ -3,27 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		634C7FE60913A9293EBB66B7 /* Pods_DesafioMobills.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0711FC6A3D3D20518B468929 /* Pods_DesafioMobills.framework */; };
 		AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294A26728BFF000B8704 /* AppDelegate.swift */; };
 		AC0B294D26728BFF000B8704 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294C26728BFF000B8704 /* SceneDelegate.swift */; };
-		AC0B294F26728BFF000B8704 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294E26728BFF000B8704 /* ViewController.swift */; };
+		AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */; };
 		AC0B295226728BFF000B8704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295026728BFF000B8704 /* Main.storyboard */; };
 		AC0B295426728C00000B8704 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295326728C00000B8704 /* Assets.xcassets */; };
 		AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC0B295526728C00000B8704 /* LaunchScreen.storyboard */; };
+		AC0B296326728ED6000B8704 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC0B296226728ED6000B8704 /* GoogleService-Info.plist */; };
+		AC7B82522672A274000CBFB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82512672A274000CBFB1 /* User.swift */; };
+		AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82532672A4EC000CBFB1 /* Moviment.swift */; };
+		AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */; };
+		ACA5F10526753F3F00EBCFC9 /* MovimentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */; };
+		ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB518E26740D3A00F74420 /* LoginViewController.swift */; };
+		ACBB519126740D3A00F74420 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBB518F26740D3A00F74420 /* LoginViewController.xib */; };
+		ACBB51942674122800F74420 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB51922674122800F74420 /* CreateUserViewController.swift */; };
+		ACBB51952674122800F74420 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBB51932674122800F74420 /* CreateUserViewController.xib */; };
+		ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACEAAC54267391BF006B6693 /* DetailViewController.swift */; };
+		ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACEAAC55267391BF006B6693 /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0711FC6A3D3D20518B468929 /* Pods_DesafioMobills.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DesafioMobills.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0B294726728BFF000B8704 /* DesafioMobills.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesafioMobills.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0B294A26728BFF000B8704 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC0B294C26728BFF000B8704 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC0B294E26728BFF000B8704 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveEditMovimentViewController.swift; sourceTree = "<group>"; };
 		AC0B295126728BFF000B8704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC0B295326728C00000B8704 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC0B295626728C00000B8704 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC0B295826728C00000B8704 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC0B296226728ED6000B8704 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC7B82512672A274000CBFB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AC7B82532672A4EC000CBFB1 /* Moviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moviment.swift; sourceTree = "<group>"; };
+		AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentTableViewCell.swift; sourceTree = "<group>"; };
+		ACBB518E26740D3A00F74420 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ACBB518F26740D3A00F74420 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		ACBB51922674122800F74420 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		ACBB51932674122800F74420 /* CreateUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		ACEAAC54267391BF006B6693 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ACEAAC55267391BF006B6693 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		CAFA0F0429C102D2CF43916F /* Pods-DesafioMobills.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobills.debug.xcconfig"; path = "Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills.debug.xcconfig"; sourceTree = "<group>"; };
+		FCA5911039FECDD2E117BAD9 /* Pods-DesafioMobills.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesafioMobills.release.xcconfig"; path = "Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634C7FE60913A9293EBB66B7 /* Pods_DesafioMobills.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08B2307F9B055408DDCF29C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA0F0429C102D2CF43916F /* Pods-DesafioMobills.debug.xcconfig */,
+				FCA5911039FECDD2E117BAD9 /* Pods-DesafioMobills.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		952A867FC109C9BE46E75D82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0711FC6A3D3D20518B468929 /* Pods_DesafioMobills.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AC0B293E26728BFF000B8704 = {
 			isa = PBXGroup;
 			children = (
 				AC0B294926728BFF000B8704 /* DesafioMobills */,
 				AC0B294826728BFF000B8704 /* Products */,
+				08B2307F9B055408DDCF29C4 /* Pods */,
+				952A867FC109C9BE46E75D82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +102,58 @@
 		AC0B294926728BFF000B8704 /* DesafioMobills */ = {
 			isa = PBXGroup;
 			children = (
-				AC0B294A26728BFF000B8704 /* AppDelegate.swift */,
-				AC0B294C26728BFF000B8704 /* SceneDelegate.swift */,
-				AC0B294E26728BFF000B8704 /* ViewController.swift */,
-				AC0B295026728BFF000B8704 /* Main.storyboard */,
-				AC0B295326728C00000B8704 /* Assets.xcassets */,
-				AC0B295526728C00000B8704 /* LaunchScreen.storyboard */,
+				AC7B824F2672A1FA000CBFB1 /* Configuration */,
+				AC7B824E2672A1EE000CBFB1 /* model */,
+				AC7B824B26729D8E000CBFB1 /* controller */,
+				AC7B82502672A216000CBFB1 /* view */,
 				AC0B295826728C00000B8704 /* Info.plist */,
+				AC0B296226728ED6000B8704 /* GoogleService-Info.plist */,
 			);
 			path = DesafioMobills;
+			sourceTree = "<group>";
+		};
+		AC7B824B26729D8E000CBFB1 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				ACBB51922674122800F74420 /* CreateUserViewController.swift */,
+				ACBB518E26740D3A00F74420 /* LoginViewController.swift */,
+				AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */,
+				AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */,
+				ACEAAC54267391BF006B6693 /* DetailViewController.swift */,
+				ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		AC7B824E2672A1EE000CBFB1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				AC7B82512672A274000CBFB1 /* User.swift */,
+				AC7B82532672A4EC000CBFB1 /* Moviment.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		AC7B824F2672A1FA000CBFB1 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AC0B294A26728BFF000B8704 /* AppDelegate.swift */,
+				AC0B294C26728BFF000B8704 /* SceneDelegate.swift */,
+				AC0B295326728C00000B8704 /* Assets.xcassets */,
+				AC0B295526728C00000B8704 /* LaunchScreen.storyboard */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		AC7B82502672A216000CBFB1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				ACBB51932674122800F74420 /* CreateUserViewController.xib */,
+				ACBB518F26740D3A00F74420 /* LoginViewController.xib */,
+				ACEAAC55267391BF006B6693 /* DetailViewController.xib */,
+				AC0B295026728BFF000B8704 /* Main.storyboard */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +163,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC0B295B26728C00000B8704 /* Build configuration list for PBXNativeTarget "DesafioMobills" */;
 			buildPhases = (
+				25593590C1F3B716EE97080C /* [CP] Check Pods Manifest.lock */,
 				AC0B294326728BFF000B8704 /* Sources */,
 				AC0B294426728BFF000B8704 /* Frameworks */,
 				AC0B294526728BFF000B8704 /* Resources */,
+				34C577C41015A6FC6BB9747A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DesafioMobills;
+			packageProductDependencies = (
+			);
 			productName = DesafioMobills;
 			productReference = AC0B294726728BFF000B8704 /* DesafioMobills.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +203,8 @@
 				Base,
 			);
 			mainGroup = AC0B293E26728BFF000B8704;
+			packageReferences = (
+			);
 			productRefGroup = AC0B294826728BFF000B8704 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,21 +220,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC0B295726728C00000B8704 /* LaunchScreen.storyboard in Resources */,
+				AC0B296326728ED6000B8704 /* GoogleService-Info.plist in Resources */,
+				ACBB519126740D3A00F74420 /* LoginViewController.xib in Resources */,
+				ACEAAC57267391BF006B6693 /* DetailViewController.xib in Resources */,
 				AC0B295426728C00000B8704 /* Assets.xcassets in Resources */,
+				ACBB51952674122800F74420 /* CreateUserViewController.xib in Resources */,
 				AC0B295226728BFF000B8704 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		25593590C1F3B716EE97080C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DesafioMobills-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34C577C41015A6FC6BB9747A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DesafioMobills/Pods-DesafioMobills-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC0B294326728BFF000B8704 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0B294F26728BFF000B8704 /* ViewController.swift in Sources */,
+				AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */,
+				AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */,
+				ACA5F10526753F3F00EBCFC9 /* MovimentTableViewCell.swift in Sources */,
+				AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */,
 				AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */,
+				ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */,
+				ACBB51942674122800F74420 /* CreateUserViewController.swift in Sources */,
+				AC7B82522672A274000CBFB1 /* User.swift in Sources */,
 				AC0B294D26728BFF000B8704 /* SceneDelegate.swift in Sources */,
+				ACEAAC56267391BF006B6693 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +431,7 @@
 		};
 		AC0B295C26728C00000B8704 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAFA0F0429C102D2CF43916F /* Pods-DesafioMobills.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,7 +442,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.alexandre.DesafioMobills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.desafiomobills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,6 +451,7 @@
 		};
 		AC0B295D26728C00000B8704 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCA5911039FECDD2E117BAD9 /* Pods-DesafioMobills.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,7 +462,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.alexandre.DesafioMobills;
+				PRODUCT_BUNDLE_IDENTIFIER = com.robaert.desafiomobills;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
