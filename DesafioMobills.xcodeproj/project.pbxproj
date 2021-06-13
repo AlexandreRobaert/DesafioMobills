@@ -18,6 +18,7 @@
 		AC7B82522672A274000CBFB1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82512672A274000CBFB1 /* User.swift */; };
 		AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82532672A4EC000CBFB1 /* Moviment.swift */; };
 		AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */; };
+		ACA5F10526753F3F00EBCFC9 /* MovimentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */; };
 		ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB518E26740D3A00F74420 /* LoginViewController.swift */; };
 		ACBB519126740D3A00F74420 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACBB518F26740D3A00F74420 /* LoginViewController.xib */; };
 		ACBB51942674122800F74420 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB51922674122800F74420 /* CreateUserViewController.swift */; };
@@ -40,6 +41,7 @@
 		AC7B82512672A274000CBFB1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AC7B82532672A4EC000CBFB1 /* Moviment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moviment.swift; sourceTree = "<group>"; };
 		AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTableViewController.swift; sourceTree = "<group>"; };
+		ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovimentTableViewCell.swift; sourceTree = "<group>"; };
 		ACBB518E26740D3A00F74420 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ACBB518F26740D3A00F74420 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		ACBB51922674122800F74420 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				AC7B82552672CD89000CBFB1 /* ListaTableViewController.swift */,
 				AC0B294E26728BFF000B8704 /* SaveEditMovimentViewController.swift */,
 				ACEAAC54267391BF006B6693 /* DetailViewController.swift */,
+				ACA5F10426753F3F00EBCFC9 /* MovimentTableViewCell.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			files = (
 				AC7B82542672A4EC000CBFB1 /* Moviment.swift in Sources */,
 				AC7B82562672CD89000CBFB1 /* ListaTableViewController.swift in Sources */,
+				ACA5F10526753F3F00EBCFC9 /* MovimentTableViewCell.swift in Sources */,
 				AC0B294F26728BFF000B8704 /* SaveEditMovimentViewController.swift in Sources */,
 				AC0B294B26728BFF000B8704 /* AppDelegate.swift in Sources */,
 				ACBB519026740D3A00F74420 /* LoginViewController.swift in Sources */,

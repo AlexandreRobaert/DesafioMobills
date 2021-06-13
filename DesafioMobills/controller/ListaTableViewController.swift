@@ -11,7 +11,12 @@ import FirebaseAuth
 
 class ListaTableViewController: UITableViewController {
     
+    @IBOutlet weak var subTotalLabel: UILabel!
+    @IBOutlet weak var typeSegmControl: UISegmentedControl!
+    @IBOutlet weak var messageLabel: UILabel!
+    
     var moviments:[Moviment] = []
+    var allMoviments:[Moviment] = []
     var db: Firestore?
     var indexPathSelected: IndexPath?
     let uid = UserDefaults.standard.string(forKey: "UID")!
@@ -26,7 +31,8 @@ class ListaTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadMoviments()
+        typeSegmControl.selectedSegmentIndex = 0
+        filterMoviments()
     }
 
     // MARK: - Table view data source
@@ -37,10 +43,9 @@ class ListaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovimentTableViewCell
 
-        cell.textLabel?.text = moviments[indexPath.row].description
-        cell.detailTextLabel?.text = "R$ \(moviments[indexPath.row].value)"
+        cell.configCell(moviment: moviments[indexPath.row])
 
         return cell
     }
@@ -60,9 +65,14 @@ class ListaTableViewController: UITableViewController {
         }  
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100.00
+    }
+    
     //MARK: - Methods
-    func loadMoviments(){
+    func loadAllMoviments(){
         self.moviments.removeAll()
+        self.allMoviments.removeAll()
         db!.collection("moviments").document(uid).collection("mov").getDocuments { querySnaptshot, error in
             if let err = error {
                 print("Erro ao buscar Movimentos - \(err)")
@@ -70,8 +80,54 @@ class ListaTableViewController: UITableViewController {
                 for document in querySnaptshot!.documents {
                     self.moviments.append(Moviment(id: document.documentID, data: document.data()))
                 }
+                self.allMoviments = self.moviments
                 self.tableView.reloadData()
+                self.configValueAndMessage()
             }
+        }
+    }
+    
+    func loadMoviment(isExpose: Bool){
+        self.moviments = allMoviments.filter({ moviment in
+            moviment.expose == isExpose
+        })
+    }
+    
+    func filterMoviments(){
+        switch typeSegmControl.selectedSegmentIndex {
+        case 0:
+            loadAllMoviments()
+            break
+        case 1:
+            loadMoviment(isExpose: false)
+            tableView.reloadData()
+            break
+        default:
+            loadMoviment(isExpose: true)
+            tableView.reloadData()
+            break
+        }
+        configValueAndMessage()
+    }
+    
+    func configValueAndMessage(){
+        var subTotal = 0.0
+        for mov in moviments {
+            if !mov.effected && mov.expose{
+                subTotal -= Double(mov.value)
+            }else if !mov.effected && !mov.expose{
+                subTotal += Double(mov.value)
+            }
+        }
+        subTotalLabel.text = String(format: "R$ %.2f", subTotal)
+        subTotalLabel.textColor = subTotal >= 0 ? .green : .red
+        messageLabel.isHidden = moviments.count > 0
+    }
+    
+    func loadMoviments(from date: Date){
+        self.moviments = allMoviments.filter{$0.date == date}
+        for mov in moviments {
+            print(mov.description)
         }
     }
     
@@ -92,8 +148,19 @@ class ListaTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    @IBAction func filterChange(_ sender: UISegmentedControl) {
+        filterMoviments()
+    }
+    
+    
     @IBAction func buttonAddPressed(_ sender: Any) {
         performSegue(withIdentifier: "segueSaveEdit", sender: nil)
+    }
+    
+    
+    @IBAction func calendarDateChange(_ sender: UIDatePicker) {
+        
+        print(sender.date)
     }
     
     @IBAction func signOutPressed(_ sender: Any) {

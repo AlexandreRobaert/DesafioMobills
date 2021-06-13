@@ -11,26 +11,23 @@ import FirebaseFirestore
 class SaveEditMovimentViewController: UIViewController {
 
     @IBOutlet weak var descriptionTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var valueTextField: UITextField!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var efetivadoLabel: UILabel!
     @IBOutlet weak var efetivadoSwitch: UISwitch!
     @IBOutlet weak var receitaLabel: UILabel!
     @IBOutlet weak var receitaSwitch: UISwitch!
+    @IBOutlet weak var messageErrorLabel: UILabel!
     
     var db: Firestore?
     var moviment: Moviment?
-    let datePicker = UIDatePicker()
     let dateFormat = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         setupView()
-        loadMoviment()
-        setDatePickerInTextField()
-        
     }
     
     static func instantiate() -> SaveEditMovimentViewController {
@@ -44,15 +41,16 @@ class SaveEditMovimentViewController: UIViewController {
     func setupView(){
         dateFormat.dateStyle = .short
         dateFormat.dateFormat = "dd/MM/yyyy"
-        if let _ = moviment {
+        if let moviment = moviment {
             navigationItem.title = "Editar Movimento"
             efetivadoLabel.isHidden = false
             efetivadoSwitch.isHidden = false
-            receitaLabel.isHidden = true
-            receitaSwitch.isHidden = true
-        }else{
-            navigationItem.title = "Novo Movimento"
-            
+            efetivadoSwitch.isOn = moviment.effected
+            valueTextField.textColor = moviment.expose ? .red : .green
+            descriptionTextField.text = moviment.description
+            datePicker.date = moviment.date
+            valueTextField.text = String("\(moviment.value)")
+            receitaSwitch.isOn = !moviment.expose
         }
     }
     
@@ -60,31 +58,24 @@ class SaveEditMovimentViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    func loadMoviment(){
-        if let moviment = self.moviment {
-            descriptionTextField.text = moviment.description
-            dateTextField.text = dateFormat.string(from: moviment.date)
-            valueTextField.text = String("\(moviment.value)")
-            efetivadoSwitch.isOn = moviment.effected
-        }
+    @IBAction func receitaValueChange(_ sender: UISwitch) {
+        valueTextField.textColor = sender.isOn ? .green : .red
     }
     
     func getMovimentFromForm() -> Bool {
-        if let dateText = dateTextField.text, dateText.count > 0 {
-            if let date = dateFormat.date(from: dateText), let value = Float(valueTextField.text!), let description = descriptionTextField.text{
-                
-                if let _ = moviment {
-                    self.moviment?.description = description
-                    self.moviment?.date = date
-                    self.moviment?.value = value
-                    self.moviment?.effected = efetivadoSwitch.isOn
-                    self.moviment?.expose = !receitaSwitch.isOn
-                }else{
-                    self.moviment = Moviment(value: value, description: description, date: date, expose: !receitaSwitch.isOn)
-                }
-                
-                return true
+        if let value = Float(valueTextField.text!), let description = descriptionTextField.text{
+            
+            if let _ = moviment {
+                self.moviment?.description = description
+                self.moviment?.date = datePicker.date
+                self.moviment?.value = value
+                self.moviment?.effected = efetivadoSwitch.isOn
+                self.moviment?.expose = !receitaSwitch.isOn
+            }else{
+                self.moviment = Moviment(value: value, description: description, date: datePicker.date, expose: !receitaSwitch.isOn)
             }
+            
+            return true
         }
         return false
     }
@@ -107,27 +98,13 @@ class SaveEditMovimentViewController: UIViewController {
             if let _ = err {
                 self.showAlertResult(message: "Falha ao salvar Movimento!")
             }else{
-                self.showAlertResult(message: "Salvo \(self.moviment!.description)")
+                self.showAlertResult(message: "\(self.moviment!.description)")
             }
-            
             self.indicator.isHidden = true
         }else{
-            print("Não foi")
+            messageErrorLabel.text = "Campos devem ser preenchidos corretamente!"
+            messageErrorLabel.isHidden = false
         }
-    }
-    
-    func setDatePickerInTextField(){
-        datePicker.datePickerMode = .date
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50))
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePressed))
-        toolbar.setItems([doneButton], animated: true)
-        self.dateTextField.inputView = datePicker
-        self.dateTextField.inputAccessoryView = toolbar
-    }
-    
-    @objc func donePressed(){
-        dateTextField.text = dateFormat.string(from: datePicker.date)
-        self.view.endEditing(true)
     }
     
     func showAlertResult(message: String){

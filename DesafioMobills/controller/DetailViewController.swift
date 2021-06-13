@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var effectedLabel: UILabel!
     
-    var moviment: Moviment?
+    var moviment: Moviment!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,10 @@ class DetailViewController: UIViewController {
         let formater = DateFormatter()
         formater.dateStyle = .short
         formater.dateFormat = "dd/MM/yy"
-        dateLabel.text = formater.string(from: moviment!.date)
-        detailLabel.text = moviment!.description
-        valueLabel.text = "R$ \(moviment!.value)"
+        dateLabel.text = formater.string(from: moviment.date)
+        detailLabel.text = moviment.description
+        valueLabel.text = String(format: "R$ %.2f", moviment.value)
+        valueLabel.textColor = moviment.expose ? .red : .green
         
         if moviment!.effected {
             effectedLabel.text = "Efetivado"
@@ -41,7 +42,7 @@ class DetailViewController: UIViewController {
     
     @IBAction func pressedEditButton(_ sender: Any) {
         let vcMoviment = SaveEditMovimentViewController.instantiate()
-        vcMoviment.moviment = moviment!
+        vcMoviment.moviment = moviment
         self.navigationController?.pushViewController(vcMoviment, animated: true)
     }
 }
