@@ -137,6 +137,7 @@ class ListaTableViewController: UITableViewController {
         db!.collection("moviments").document(uid).collection("mov").document(moviments[indexPathSelected!.row].id!).delete()
         moviments.remove(at: indexPathSelected!.row)
         tableView.deleteRows(at: [indexPathSelected!], with: .fade)
+        configValueAndMessage()
     }
     
     func showAlertDelete(message: String){
